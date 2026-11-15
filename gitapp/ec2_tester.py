@@ -29,7 +29,7 @@ def get_aws_metadata():
                 with urllib.request.urlopen(req_meta, timeout=1) as res:
                     metadata[item] = res.read().decode()
             except Exception:
-                metadata[item] = "Unavailable instance"
+                metadata[item] = "Unavailable instance check further"
         return metadata
     except Exception:
         return None
