@@ -18,7 +18,7 @@ def get_aws_metadata():
             token = response.read().decode()
 
         metadata = {}
-        # Fetch specific metadata endpoints
+        # Fetch specific metadata endpoints and validte
         endpoints = ['instance-id', 'instance-type', 'placement/availability-zone', 'public-ipv4']
         for item in endpoints:
             try:
@@ -29,7 +29,7 @@ def get_aws_metadata():
                 with urllib.request.urlopen(req_meta, timeout=1) as res:
                     metadata[item] = res.read().decode()
             except Exception:
-                metadata[item] = "Unavailable"
+                metadata[item] = "Unavailable instance"
         return metadata
     except Exception:
         return None
