@@ -9,7 +9,7 @@ def get_aws_metadata():
     """Fetches EC2 instance metadata using IMDSv2."""
     try:
         # Request an IMDSv2 token (required for modern EC2 instances) - changes to token for defect fix
-            req_percentage = urllib.request.Request(
+            req_percentage1 = urllib.request.Request(
             "http://169.254.169.254/latest/api/token",
             headers={"X-aws-ec2-metadata-token-ttl-seconds": "21600"},
             method="PUT"
